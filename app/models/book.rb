@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  is_impressionable
+
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
 
@@ -21,6 +23,6 @@ class Book < ApplicationRecord
       Book.where("title LIKE?", "%#{word}%")
     else
       Book.all
-    end  
+    end
   end
 end
